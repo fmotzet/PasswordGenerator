@@ -5,13 +5,14 @@ upper = lower.upper()
 symbols = '!#$%()=+'
 number = '0123456789'
 
+
 def dash_adder(string, x):
 
     paword = ''
     cnt = 0
 
     for ch in string:
-        if cnt%x==0 and cnt!=0: # checking if cnt is a multiple of x and not 0, we don't want to put star at index 0
+        if cnt % x == 0 and cnt != 0:  # checking if cnt is a multiple of x and not 0, we don't want to put star at index 0
             paword += '-'
         cnt += 1
         paword += ch
@@ -31,8 +32,9 @@ def password_generator():
 
     password = ''
     for x in range(20):
-        password = ''.join([password, random.choice(passwordchars)])       
-    print(dash_adder(password,5))
+        password = ''.join([password, random.choice(passwordchars)])
+    print(dash_adder(password, 5))
     return ''
+
 
 password_generator()
