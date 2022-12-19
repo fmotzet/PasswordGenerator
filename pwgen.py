@@ -4,19 +4,17 @@ lower = 'abcdefghijklmnopqrstuvwxyz'
 upper = lower.upper()
 symbols = '!#$%()=+'
 number = '0123456789'
-dashes = '-'
 
 
 def dash_adder(string, x):
 
     paword = ''
     cnt = 0
-
-    for ch in string:
-        if cnt % x == 0 and cnt != 0:  # checking if cnt is a multiple of x and not 0, we don't want to put star at index 0
+    for char in string:
+        if cnt % x == 0 and cnt != 0:  # checking if cnt is a multiple of x and not 0, we don't want to put dash at index 0
             paword += '-'
         cnt += 1
-        paword += ch
+        paword += char
     return paword
 
 
@@ -27,7 +25,7 @@ def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, sybols
 
     # if all are false
     if (lowerbool + upperbool + sybolsbool + numberbool) == 0:
-        return print("Yeah thats not gonna work my guy!")
+        return "Yeah thats not gonna work my guy!"
 
     if lowerbool:
         passwordchars += lower
@@ -43,8 +41,14 @@ def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, sybols
         password = ''.join([password, random.choice(passwordchars)])
 
     if dashesbool and (len(password) > 10):
-        # TODO Find good number of dashes
-        print(dash_adder(password, 5))
-        return ''
-    print(password)
-    return ''
+        if len(password) % 5 == 0:
+            return dash_adder(password, 5)
+        if len(password) % 6 == 0:
+            return dash_adder(password, 6)
+        if len(password) % 4 == 0:
+            return dash_adder(password, 4)
+        return dash_adder(password, 5)
+    return password
+
+
+print(password_generator(18))
