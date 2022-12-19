@@ -49,6 +49,3 @@ def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, sybols
             return dash_adder(password, 4)
         return dash_adder(password, 5)
     return password
-
-
-print(password_generator(18))
