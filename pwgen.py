@@ -18,20 +18,20 @@ def dash_adder(string, x):
     return paword
 
 
-def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, sybolsbool=1, numberbool=1):
+def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, symbolbool=1, numberbool=1):
 
     print("length, dashes, lowercase_letters, uppercase_letters, symbols, numbers")
     passwordchars = ''
 
     # if all are false
-    if (lowerbool + upperbool + sybolsbool + numberbool) == 0:
+    if (lowerbool + upperbool + symbolbool + numberbool) == 0:
         return "Error no symbols selected"
 
     if lowerbool:
         passwordchars += lower
     if upperbool:
         passwordchars += upper
-    if sybolsbool:
+    if symbolbool:
         passwordchars += symbols
     if numberbool:
         passwordchars += number
