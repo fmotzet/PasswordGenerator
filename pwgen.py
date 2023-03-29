@@ -25,7 +25,7 @@ def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, sybols
 
     # if all are false
     if (lowerbool + upperbool + sybolsbool + numberbool) == 0:
-        return "Yeah thats not gonna work my guy!"
+        return "Error no symbols selected"
 
     if lowerbool:
         passwordchars += lower
@@ -42,10 +42,11 @@ def password_generator(length=18, dashesbool=1, lowerbool=1, upperbool=1, sybols
 
     if dashesbool and (len(password) > 10):
         if len(password) % 5 == 0:
-            return dash_adder(password, 5)
-        if len(password) % 6 == 0:
-            return dash_adder(password, 6)
-        if len(password) % 4 == 0:
-            return dash_adder(password, 4)
-        return dash_adder(password, 5)
+            password = dash_adder(password, 5)
+        elif len(password) % 6 == 0:
+            password = dash_adder(password, 6)
+        elif len(password) % 4 == 0:
+            password = dash_adder(password, 4)
+        password = dash_adder(password, 5)
+    print(password)
     return password
